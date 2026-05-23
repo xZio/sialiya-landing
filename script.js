@@ -113,58 +113,25 @@
     });
   });
 
-  /* === Активный пункт меню при скролле === */
+  /* === Активный пункт меню === */
   var allNavLinks = document.querySelectorAll('.header__nav a, .header__mobile-nav a');
 
-  // Секции в порядке снизу вверх: первая совпавшая = текущая
-  var navSections = [
-    { id: 'contacts',    nav: 'contacts'  },
-    { id: 'documents',   nav: 'documents' },
-    { id: 'services',    nav: 'services'  },
-    { id: 'about',       nav: 'about'     },
-    { id: 'sialiya',     nav: 'home'      },
-    { id: 'sialiya-yug', nav: 'home'      },
-  ];
-
-  var navScrollLocked = false;
-  var navScrollTimer;
-
-  function updateActiveNav() {
-    if (navScrollLocked) return;
-    var scrollY = window.scrollY + 80;
-    var activeNav = 'home';
-
-    for (var i = 0; i < navSections.length; i++) {
-      var el = document.getElementById(navSections[i].id);
-      if (el && el.offsetTop <= scrollY) {
-        activeNav = navSections[i].nav;
-        break;
-      }
-    }
-
-    allNavLinks.forEach(function(link) {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + activeNav);
-    });
-  }
-
-  window.addEventListener('scroll', updateActiveNav, { passive: true });
-  updateActiveNav();
-
-  // При клике: сразу подсвечиваем нужный пункт и блокируем скролл-обработчик
-  // на время анимации скролла, чтобы он не перебил активный пункт
+  // Клик → подсвечиваем нажатый пункт
   allNavLinks.forEach(function(link) {
     link.addEventListener('click', function() {
       allNavLinks.forEach(function(l) { l.classList.remove('active'); });
       this.classList.add('active');
-
-      navScrollLocked = true;
-      clearTimeout(navScrollTimer);
-      navScrollTimer = setTimeout(function() {
-        navScrollLocked = false;
-        updateActiveNav();
-      }, 800);
     });
   });
+
+  // Если пользователь сам проскроллил наверх — возвращаем «Главная»
+  window.addEventListener('scroll', function() {
+    if (window.scrollY < 80) {
+      allNavLinks.forEach(function(link) {
+        link.classList.toggle('active', link.getAttribute('href') === '#home');
+      });
+    }
+  }, { passive: true });
 
   /* === Инициализация поля телефона === */
   var phoneField = document.querySelector('#calcModal input[type="tel"]');
