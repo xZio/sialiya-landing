@@ -1,7 +1,7 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { overflow-x: hidden; }
+    html { overflow-x: clip; }
     /* a11y-mode убран — используется полная панель слабовидящих ниже */
     body {
       font-family: 'Inter', sans-serif;
@@ -15,6 +15,7 @@
 
     /* ===================== HEADER ===================== */
     .header {
+      position: -webkit-sticky;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -1593,6 +1594,7 @@
       display: none;
       background: #eef2f6;
       border-bottom: 2px solid #305b84;
+      position: -webkit-sticky;
       position: sticky;
       top: 68px;
       z-index: 99;
