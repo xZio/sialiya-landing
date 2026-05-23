@@ -105,6 +105,14 @@
   /* === Плавный скролл === */
   document.documentElement.style.scrollBehavior = 'smooth';
 
+  /* === Логотип и «Главная» → наверх === */
+  document.querySelectorAll('a[href="#home"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
   /* === Активный пункт меню при скролле === */
   var allNavLinks = document.querySelectorAll('.header__nav a, .header__mobile-nav a');
 
