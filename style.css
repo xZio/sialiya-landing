@@ -305,6 +305,19 @@
       border-radius: 20px;
       object-fit: cover;
     }
+    .branch-card__photo-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 5 / 3;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .branch-card__photo-wrap .branch-card__photo-sm {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: unset;
+      border-radius: 0;
+    }
     .branch-card__more-photos {
       position: absolute;
       bottom: 8px;
@@ -1229,13 +1242,13 @@
         height: 140px;
         object-fit: cover;
       }
-      .branch-card__more-photos {
-        position: absolute;
-        bottom: 8px;
-        right: 8px;
-        width: 115px;
-        height: 33px;
-        border-radius: 65px;
+      .branch-card__photo-wrap {
+        width: calc(50% - 4px);
+        height: 140px;
+        aspect-ratio: unset;
+      }
+      .branch-card__photo-wrap .branch-card__photo-sm {
+        height: 100%;
       }
 
       .branch-card__info {
@@ -1340,7 +1353,7 @@
       /* Фото карточек пансионатов */
       .branch-card__photo-main { height: 180px; }
       .branch-card__photo-sm { height: 110px; }
-      .branch-card__more-photos { height: 33px; width: 115px; }
+      .branch-card__photo-wrap { height: 110px; }
       .branch-card__name { font-size: 26px; }
 
       /* Цены — мелкий шрифт на мобильном */
