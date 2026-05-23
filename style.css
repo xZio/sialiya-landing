@@ -1494,6 +1494,53 @@
     }
     .notif__btn:hover { background: #0e2b4d; }
 
+    /* ── Попап контактов ── */
+    .contact-popup {
+      background: #fff;
+      border-radius: 20px;
+      padding: 48px 40px 40px;
+      width: 400px;
+      max-width: 90vw;
+      text-align: center;
+      position: relative;
+    }
+    .contact-popup__title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0e2b4d;
+      margin-bottom: 10px;
+    }
+    .contact-popup__subtitle {
+      font-size: 15px;
+      color: rgba(14,43,77,0.6);
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+    .contact-popup__phone {
+      display: block;
+      font-size: 26px;
+      font-weight: 700;
+      color: #305b84;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+    .contact-popup__phone:hover { color: #0e2b4d; }
+    .contact-popup__email {
+      display: block;
+      font-size: 16px;
+      color: #305b84;
+      text-decoration: none;
+      margin-bottom: 32px;
+    }
+    .contact-popup__email:hover { color: #0e2b4d; }
+    .contact-popup__close-btn { margin-top: 0; }
+
+    /* Поле уточнения психического заболевания */
+    .calc__mental-detail {
+      display: none;
+      margin-top: 8px;
+    }
+
     /* ── Калькулятор — адаптив ── */
     @media (max-width: 768px) {
       .calculator {

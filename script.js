@@ -71,7 +71,21 @@
   /* === Уведомление === */
   function openNotif() { document.getElementById('notifModal').classList.add('open'); }
   function closeNotif() { document.getElementById('notifModal').classList.remove('open'); }
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeCalc(); closeNotif(); } });
+
+  /* === Попап контактов === */
+  function openContact() { document.getElementById('contactModal').classList.add('open'); }
+  function closeContact() { document.getElementById('contactModal').classList.remove('open'); }
+
+  /* === Поле уточнения психического заболевания === */
+  function toggleMentalDetail(sel) {
+    var detail = document.getElementById('calcMentalDetail');
+    detail.style.display = sel.value === 'yes' ? 'block' : 'none';
+    if (sel.value !== 'yes') detail.value = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeCalc(); closeNotif(); closeContact(); }
+  });
 
   /* === Версия для слабовидящих === */
   function toggleA11y() {

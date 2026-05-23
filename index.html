@@ -57,10 +57,10 @@
     <h2 class="hero__why">Почему нас выбирают?</h2>
     <p class="hero__why-desc">Безопасно, уютно и по-домашнему. Внимательный персонал рядом каждый день, помощь в бытовых делах и спокойная атмосфера. Мы всегда на связи с родными и подбираем уход под потребности человека.</p>
     <div class="hero__buttons">
-      <a href="#contacts" class="hero__btn">
+      <button class="hero__btn" onclick="openContact()">
         <span class="hero__btn-line1">Записаться</span>
         <span class="hero__btn-line2">на экскурсию</span>
-      </a>
+      </button>
       <button class="hero__btn" onclick="openCalc()">
         <span class="hero__btn-line1">Калькулятор</span>
         <span class="hero__btn-line2">стоимости</span>
@@ -310,7 +310,7 @@
     Забота и комфорт для пожилых людей<br>
     с круглосуточным уходом и вниманием
   </div>
-  <div class="footer__cta" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">
+  <div class="footer__cta" onclick="openContact()">
     <span>Записаться</span>
   </div>
 
@@ -394,12 +394,12 @@
       </div>
       <div class="calc__field">
         <label class="calc__label">Психические заболевания</label>
-        <select class="calc__input">
+        <select id="calcMental" class="calc__input" onchange="toggleMentalDetail(this)">
           <option value="">Выбрать</option>
-          <option>Нет</option>
-          <option>Деменция</option>
-          <option>Другое</option>
+          <option value="no">Нет</option>
+          <option value="yes">Да</option>
         </select>
+        <input id="calcMentalDetail" class="calc__input calc__mental-detail" type="text" placeholder="Уточните заболевание">
       </div>
       <div class="calc__field">
         <label class="calc__label">Пол</label>
@@ -430,6 +430,18 @@
     <h2 class="notif__title">Заявка принята!</h2>
     <p class="notif__text">Менеджер рассчитает стоимость пребывания и свяжется с вами в ближайшее время.</p>
     <button class="notif__btn" onclick="closeNotif()">Понятно</button>
+  </div>
+</div>
+
+<!-- ========================= ПОПАП КОНТАКТОВ ========================= -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target===this)closeContact()">
+  <div class="contact-popup">
+    <button class="calc__close" onclick="closeContact()">✕</button>
+    <h2 class="contact-popup__title">Свяжитесь с нами</h2>
+    <p class="contact-popup__subtitle">Менеджер ответит на все вопросы и поможет подобрать место</p>
+    <a class="contact-popup__phone" href="tel:+79219390406">+7 (921) 939-04-06</a>
+    <a class="contact-popup__email" href="mailto:info@sialiya.spb.ru">info@sialiya.spb.ru</a>
+    <button class="notif__btn contact-popup__close-btn" onclick="closeContact()">Закрыть</button>
   </div>
 </div>
 
