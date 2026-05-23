@@ -503,7 +503,7 @@
 
     /* Pricing col gap */
     .pricing__col--gap { margin-right: 2px; }
-    .pricing__col--wide { flex: 1.6; }
+    .pricing__col--wide { flex: 1; }
 
     /* Pricing table */
     .pricing {
@@ -564,6 +564,7 @@
       letter-spacing: -1.2px;
       line-height: 1.002;
       text-align: center;
+      white-space: nowrap;
     }
     .pricing__price {
       font-size: 40px;
