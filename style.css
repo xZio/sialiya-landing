@@ -698,15 +698,18 @@
       height: 43px;
       display: flex;
       align-items: center;
-      padding-left: 4px;
-      gap: 8px;
+      padding-left: 0;
+      gap: 10px;
     }
     .service-item__icon-wrap {
-      width: 52px;
+      width: 48px;
+      align-self: stretch;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      flex-shrink: 0;
+      justify-content: center;
+      background: rgba(48,91,132,0.1);
+      border-radius: 37.5px 0 0 37.5px;
     }
     .service-item__icon {
       object-fit: contain;
@@ -1132,8 +1135,8 @@
         grid-template-columns: repeat(2, 1fr);
       }
       .documents__grid .doc-item:nth-child(-n+3) { grid-column: span 1; }
-      .documents__grid .doc-item:nth-child(n+4)  { grid-column: span 2; }
-      .doc-item--wide { grid-column: span 2; }
+      .documents__grid .doc-item:nth-child(n+4)  { grid-column: span 1; }
+      .documents__grid .doc-item.doc-item--wide   { grid-column: span 2; }
     }
 
     /* ── Планшет / широкий мобайл ── */
