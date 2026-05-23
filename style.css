@@ -394,6 +394,9 @@
       position: relative;
       height: 60px;
       flex: 1 1 200px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
       max-width: 309px;
       min-width: 0;
       overflow: hidden;
