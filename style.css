@@ -709,7 +709,7 @@
       align-items: center;
       justify-content: center;
       background: rgba(48,91,132,0.1);
-      border-radius: 37.5px 0 0 37.5px;
+      border-radius: 37.5px;
     }
     .service-item__icon {
       object-fit: contain;
