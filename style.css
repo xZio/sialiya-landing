@@ -542,6 +542,7 @@
     }
     .pricing__top {
       flex: 1;
+      min-height: 54px;
       border-radius: 25px 25px 0 0;
       display: flex;
       align-items: center;
@@ -549,6 +550,7 @@
     }
     .pricing__bottom {
       flex: 1;
+      min-height: 54px;
       border-radius: 0 0 25px 25px;
       display: flex;
       align-items: center;
@@ -696,14 +698,14 @@
       height: 43px;
       display: flex;
       align-items: center;
-      padding-left: 10px;
+      padding-left: 4px;
       gap: 8px;
     }
     .service-item__icon-wrap {
-      width: 60px;
+      width: 52px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       flex-shrink: 0;
     }
     .service-item__icon {
@@ -744,10 +746,14 @@
     }
     .documents__grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(6, 1fr);
       grid-template-rows: auto auto;
       gap: 8px 30px;
     }
+    /* Верхние 3 овала: span 2 из 6 → равные */
+    .documents__grid .doc-item:nth-child(-n+3) { grid-column: span 2; }
+    /* Нижние 2 овала: span 3 из 6 → равные между собой */
+    .documents__grid .doc-item:nth-child(n+4) { grid-column: span 3; }
     .doc-item {
       background: rgba(48,91,132,0.1);
       border-radius: 37.5px;
@@ -760,7 +766,7 @@
       padding: 0 20px;
     }
     .doc-item--wide {
-      grid-column: span 2;
+      grid-column: span 3;
     }
     .doc-item {
       text-decoration: none;
@@ -1125,9 +1131,9 @@
       .documents__grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .doc-item--wide {
-        grid-column: span 2;
-      }
+      .documents__grid .doc-item:nth-child(-n+3) { grid-column: span 1; }
+      .documents__grid .doc-item:nth-child(n+4)  { grid-column: span 2; }
+      .doc-item--wide { grid-column: span 2; }
     }
 
     /* ── Планшет / широкий мобайл ── */
@@ -1342,6 +1348,8 @@
       /* Услуги и документы — 1 колонка */
       .services__grid { grid-template-columns: 1fr; }
       .documents__grid { grid-template-columns: 1fr; }
+      .documents__grid .doc-item:nth-child(-n+3),
+      .documents__grid .doc-item:nth-child(n+4) { grid-column: span 1; }
       .doc-item--wide { grid-column: span 1; }
 
       .services__desc,
