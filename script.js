@@ -146,6 +146,14 @@
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   updateActiveNav();
 
+  // При клике сразу подсвечиваем выбранный пункт (на случай если секции уже видны)
+  allNavLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      allNavLinks.forEach(function(l) { l.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+
   /* === Инициализация поля телефона === */
   var phoneField = document.querySelector('#calcModal input[type="tel"]');
   if (phoneField) {
