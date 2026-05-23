@@ -171,8 +171,8 @@
       margin-top: -3px;
       width: 83%; /* 22% + 83% = 105% → 5% за правым краем, обрезает overflow:hidden */
       height: 835px;
-      -webkit-mask-image: url('assets/images/hero-bg-mask.png');
-      mask-image: url('assets/images/hero-bg-mask.png');
+      -webkit-mask-image: url('assets/images/hero-bg-mask.webp');
+      mask-image: url('assets/images/hero-bg-mask.webp');
       -webkit-mask-size: 1025px 940px;
       mask-size: 1025px 940px;
       -webkit-mask-position: 265px -142px;
