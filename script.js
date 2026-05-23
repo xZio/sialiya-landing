@@ -88,9 +88,91 @@
   });
 
   /* === Версия для слабовидящих === */
-  function toggleA11y() {
-    document.documentElement.classList.toggle('a11y-mode');
+  var a11yState = { open: false, fs: 0, scheme: 'none', images: 1, spacing: 0 };
+
+  function a11yLoad() {
+    try {
+      var saved = JSON.parse(localStorage.getItem('sialiya_a11y'));
+      if (saved) {
+        a11yState.open    = !!saved.open;
+        a11yState.fs      = saved.fs      || 0;
+        a11yState.scheme  = saved.scheme  || 'none';
+        a11yState.images  = saved.images  !== undefined ? Number(saved.images) : 1;
+        a11yState.spacing = saved.spacing || 0;
+      }
+    } catch(e) {}
   }
+
+  function a11ySave() {
+    try { localStorage.setItem('sialiya_a11y', JSON.stringify(a11yState)); } catch(e) {}
+  }
+
+  function a11yApply() {
+    var html  = document.documentElement;
+    var panel = document.getElementById('a11yPanel');
+
+    // Панель
+    panel.classList.toggle('open', a11yState.open);
+    panel.setAttribute('aria-hidden', a11yState.open ? 'false' : 'true');
+
+    // Размер шрифта
+    html.classList.remove('a11y-fs-1', 'a11y-fs-2');
+    if (a11yState.fs === 1) html.classList.add('a11y-fs-1');
+    if (a11yState.fs === 2) html.classList.add('a11y-fs-2');
+
+    // Цветовая схема
+    html.classList.remove('a11y-scheme-white', 'a11y-scheme-black', 'a11y-scheme-yellow');
+    if (a11yState.scheme !== 'none') html.classList.add('a11y-scheme-' + a11yState.scheme);
+
+    // Изображения
+    html.classList.toggle('a11y-no-images', a11yState.images === 0);
+
+    // Интервал
+    html.classList.remove('a11y-spacing-1', 'a11y-spacing-2');
+    if (a11yState.spacing === 1) html.classList.add('a11y-spacing-1');
+    if (a11yState.spacing === 2) html.classList.add('a11y-spacing-2');
+
+    // Активные кнопки
+    document.querySelectorAll('#a11yPanel [data-a11y]').forEach(function(btn) {
+      var key = btn.getAttribute('data-a11y');
+      var val = btn.getAttribute('data-val');
+      var cur = String(a11yState[key]);
+      btn.classList.toggle('a11y-panel__btn--active', cur === val);
+      btn.setAttribute('aria-pressed', cur === val ? 'true' : 'false');
+    });
+  }
+
+  function toggleA11y() {
+    a11yState.open = !a11yState.open;
+    // При первом открытии — применяем белую схему как дефолт
+    if (a11yState.open && a11yState.scheme === 'none') {
+      a11yState.scheme = 'white';
+    }
+    a11ySave();
+    a11yApply();
+  }
+
+  document.getElementById('a11yPanel').addEventListener('click', function(e) {
+    // Кнопка «Обычная версия»
+    if (e.target.closest('#a11yReset')) {
+      a11yState = { open: false, fs: 0, scheme: 'none', images: 1, spacing: 0 };
+      a11ySave();
+      a11yApply();
+      return;
+    }
+    // Остальные кнопки настроек
+    var btn = e.target.closest('[data-a11y]');
+    if (!btn) return;
+    var key = btn.getAttribute('data-a11y');
+    var val = btn.getAttribute('data-val');
+    a11yState[key] = isNaN(Number(val)) ? val : Number(val);
+    a11ySave();
+    a11yApply();
+  });
+
+  // Инициализация: восстанавливаем настройки из localStorage
+  a11yLoad();
+  a11yApply();
 
   /* === Бургер-меню === */
   var burger = document.getElementById('burgerBtn');

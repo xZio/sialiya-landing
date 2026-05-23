@@ -2,7 +2,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { overflow-x: hidden; }
-    html.a11y-mode { filter: grayscale(1) contrast(1.4); }
+    /* a11y-mode убран — используется полная панель слабовидящих ниже */
     body {
       font-family: 'Inter', sans-serif;
       background: #e8e8e8;
@@ -1585,4 +1585,136 @@
       .calc__consent, .calc__submit-wrap { grid-column: span 1; }
       .calc__gender { flex-direction: row; flex-wrap: wrap; gap: 16px; }
     }
+
+    /* ===================== ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ ===================== */
+
+    /* --- Панель --- */
+    .a11y-panel {
+      display: none;
+      background: #eef2f6;
+      border-bottom: 2px solid #305b84;
+      position: sticky;
+      top: 68px;
+      z-index: 99;
+      width: 100%;
+    }
+    .a11y-panel.open { display: block; }
+    .a11y-panel__inner {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 10px 52px;
+    }
+    .a11y-panel__label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #555;
+      white-space: nowrap;
+    }
+    .a11y-panel__group { display: flex; gap: 4px; }
+    .a11y-panel__btn {
+      padding: 4px 12px;
+      font-size: 14px;
+      border: 1px solid #aaa;
+      background: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #333;
+      line-height: 1.5;
+    }
+    .a11y-panel__btn:hover:not(.a11y-panel__btn--active) { background: #d0dce8; }
+    .a11y-panel__btn--active {
+      background: #305b84 !important;
+      color: #fff !important;
+      border-color: #305b84 !important;
+    }
+    .a11y-panel__btn--bw { background: #fff; color: #000; }
+    .a11y-panel__btn--wb { background: #000; color: #fff; border-color: #555; }
+    .a11y-panel__btn--yb { background: #f9f214; color: #000; border-color: #bba800; }
+    .a11y-panel__sep {
+      width: 1px;
+      height: 22px;
+      background: #ccc;
+      flex-shrink: 0;
+    }
+    .a11y-panel__reset {
+      font-size: 13px;
+      font-weight: 500;
+      background: none;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      padding: 4px 12px;
+      cursor: pointer;
+      color: #555;
+      white-space: nowrap;
+    }
+    .a11y-panel__reset:hover { background: #d0dce8; }
+    @media (max-width: 900px) {
+      .a11y-panel__inner { padding: 8px 16px; gap: 6px 12px; }
+      .a11y-panel__label { font-size: 12px; }
+      .a11y-panel__btn { font-size: 12px; padding: 3px 8px; }
+    }
+    @media (max-width: 600px) {
+      .a11y-panel__sep { display: none; }
+    }
+
+    /* --- Размер шрифта --- */
+    html.a11y-fs-1 { zoom: 1.25; }
+    html.a11y-fs-2 { zoom: 1.5; }
+
+    /* --- Межбуквенный интервал --- */
+    html.a11y-spacing-1 body { letter-spacing: 0.08em !important; line-height: 1.9 !important; word-spacing: 0.15em !important; }
+    html.a11y-spacing-2 body { letter-spacing: 0.16em !important; line-height: 2.2 !important; word-spacing: 0.3em !important; }
+
+    /* --- Изображения --- */
+    html.a11y-no-images img { visibility: hidden !important; }
+
+    /* ---- Цветовые схемы ---- */
+
+    /* Восстановление панели в белой и жёлтой схемах (specificity > body *) */
+    html.a11y-scheme-white .a11y-panel,
+    html.a11y-scheme-yellow .a11y-panel { background-color: #eef2f6 !important; border-color: #305b84 !important; }
+    html.a11y-scheme-white .a11y-panel__btn,
+    html.a11y-scheme-yellow .a11y-panel__btn { background-color: #fff !important; color: #333 !important; border-color: #aaa !important; }
+    html.a11y-scheme-white .a11y-panel__btn--active,
+    html.a11y-scheme-yellow .a11y-panel__btn--active { background-color: #305b84 !important; color: #fff !important; border-color: #305b84 !important; }
+    html.a11y-scheme-white .a11y-panel__btn--wb,
+    html.a11y-scheme-yellow .a11y-panel__btn--wb { background-color: #000 !important; color: #fff !important; }
+    html.a11y-scheme-white .a11y-panel__btn--yb,
+    html.a11y-scheme-yellow .a11y-panel__btn--yb { background-color: #f9f214 !important; color: #000 !important; border-color: #bba800 !important; }
+    html.a11y-scheme-white .a11y-panel__label,
+    html.a11y-scheme-white .a11y-panel__reset,
+    html.a11y-scheme-yellow .a11y-panel__label,
+    html.a11y-scheme-yellow .a11y-panel__reset { color: #555 !important; background-color: transparent !important; border-color: #aaa !important; }
+    html.a11y-scheme-white .a11y-panel__sep,
+    html.a11y-scheme-yellow .a11y-panel__sep { background-color: #ccc !important; }
+    html.a11y-scheme-white .modal-overlay,
+    html.a11y-scheme-yellow .modal-overlay { background: rgba(0,0,0,0.6) !important; }
+
+    /* БЕЛЫЙ (Ч/Б): чёрный текст на белом */
+    html.a11y-scheme-white,
+    html.a11y-scheme-white body { background-color: #fff !important; color: #000 !important; }
+    html.a11y-scheme-white body * { background-color: #fff !important; color: #000 !important; border-color: #ccc !important; text-shadow: none !important; }
+    html.a11y-scheme-white a,
+    html.a11y-scheme-white a * { color: #00008b !important; }
+    html.a11y-scheme-white .calculator,
+    html.a11y-scheme-white .notif,
+    html.a11y-scheme-white .contact-popup { border: 2px solid #000 !important; }
+
+    /* ЧЁРНЫЙ (Б/Ч): инверсия через filter */
+    html.a11y-scheme-black body { filter: invert(1); }
+    html.a11y-scheme-black img,
+    html.a11y-scheme-black video { filter: invert(1); }
+    html.a11y-scheme-black .a11y-panel { filter: invert(1); }
+
+    /* ЖЁЛТЫЙ (Ж/Ч): чёрный текст на жёлтом */
+    html.a11y-scheme-yellow,
+    html.a11y-scheme-yellow body { background-color: #f9f214 !important; color: #000 !important; }
+    html.a11y-scheme-yellow body * { background-color: #f9f214 !important; color: #000 !important; border-color: #000 !important; text-shadow: none !important; }
+    html.a11y-scheme-yellow a,
+    html.a11y-scheme-yellow a * { color: #0000cd !important; }
+    html.a11y-scheme-yellow .calculator,
+    html.a11y-scheme-yellow .notif,
+    html.a11y-scheme-yellow .contact-popup { border: 2px solid #000 !important; }
   

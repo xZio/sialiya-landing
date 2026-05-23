@@ -43,6 +43,40 @@
   </nav>
 </header>
 
+<!-- ========================= A11Y PANEL ========================= -->
+<div class="a11y-panel" id="a11yPanel" role="toolbar" aria-label="Параметры доступности" aria-hidden="true">
+  <div class="a11y-panel__inner">
+    <span class="a11y-panel__label">Размер шрифта:</span>
+    <div class="a11y-panel__group">
+      <button class="a11y-panel__btn" data-a11y="fs" data-val="0">А</button>
+      <button class="a11y-panel__btn" data-a11y="fs" data-val="1">А+</button>
+      <button class="a11y-panel__btn" data-a11y="fs" data-val="2">А++</button>
+    </div>
+    <div class="a11y-panel__sep" aria-hidden="true"></div>
+    <span class="a11y-panel__label">Цвет:</span>
+    <div class="a11y-panel__group">
+      <button class="a11y-panel__btn a11y-panel__btn--bw" data-a11y="scheme" data-val="white">Ч/Б</button>
+      <button class="a11y-panel__btn a11y-panel__btn--wb" data-a11y="scheme" data-val="black">Б/Ч</button>
+      <button class="a11y-panel__btn a11y-panel__btn--yb" data-a11y="scheme" data-val="yellow">Ж/Ч</button>
+    </div>
+    <div class="a11y-panel__sep" aria-hidden="true"></div>
+    <span class="a11y-panel__label">Изображения:</span>
+    <div class="a11y-panel__group">
+      <button class="a11y-panel__btn" data-a11y="images" data-val="1">Вкл</button>
+      <button class="a11y-panel__btn" data-a11y="images" data-val="0">Выкл</button>
+    </div>
+    <div class="a11y-panel__sep" aria-hidden="true"></div>
+    <span class="a11y-panel__label">Интервал:</span>
+    <div class="a11y-panel__group">
+      <button class="a11y-panel__btn" data-a11y="spacing" data-val="0">Н</button>
+      <button class="a11y-panel__btn" data-a11y="spacing" data-val="1">С</button>
+      <button class="a11y-panel__btn" data-a11y="spacing" data-val="2">Б</button>
+    </div>
+    <div class="a11y-panel__sep" aria-hidden="true"></div>
+    <button class="a11y-panel__reset" id="a11yReset">Обычная версия</button>
+  </div>
+</div>
+
 <!-- ========================= HERO ========================= -->
 <section class="hero">
   <!-- Right side: background photo with mask -->
