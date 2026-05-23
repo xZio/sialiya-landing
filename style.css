@@ -1711,6 +1711,9 @@
     html.a11y-scheme-white .header__nav a,
     html.a11y-scheme-white .header__mobile-nav a { color: #000 !important; }
     html.a11y-scheme-white a { color: #00008b !important; }
+    /* Кнопка «Версия для слабовидящих» — текст всегда белый */
+    html.a11y-scheme-white .header__a11y,
+    html.a11y-scheme-white .header__a11y span { color: #fff !important; }
     html.a11y-scheme-white .hero__bg { display: none !important; }
     html.a11y-scheme-white .modal-overlay { background: rgba(0,0,0,0.6) !important; }
 
@@ -1751,6 +1754,8 @@
     html.a11y-scheme-yellow .header__nav a,
     html.a11y-scheme-yellow .header__mobile-nav a { color: #000 !important; }
     html.a11y-scheme-yellow a { color: #00008b !important; }
+    html.a11y-scheme-yellow .header__a11y,
+    html.a11y-scheme-yellow .header__a11y span { color: #fff !important; }
     html.a11y-scheme-yellow .hero__bg { display: none !important; }
     html.a11y-scheme-yellow .modal-overlay { background: rgba(0,0,0,0.6) !important; }
   
