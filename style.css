@@ -617,6 +617,7 @@
       letter-spacing: 4.5px;
       margin-bottom: 40px;
       margin-left: 23px;
+      scroll-margin-top: 35vh;
     }
     .details__text {
       font-size: 18px;
