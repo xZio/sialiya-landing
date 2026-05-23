@@ -420,16 +420,24 @@
       letter-spacing: -0.6px;
     }
     .branch-card__stars {
-      display: flex;
-      gap: clamp(2px, 0.4vw, 8px);
-      flex-shrink: 1;
-      min-width: 0;
-    }
-    .branch-card__stars span {
-      font-size: 20px;
-      color: #f5b800;
+      position: relative;
+      display: inline-block;
       flex-shrink: 0;
       line-height: 1;
+      white-space: nowrap;
+    }
+    .stars-bg,
+    .stars-fill {
+      font-size: 20px;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+    .stars-bg { color: #ccc; }
+    .stars-fill {
+      position: absolute;
+      top: 0; left: 0;
+      overflow: hidden;
+      color: #f5b800;
     }
 
     .branch-card__btn-gallery,
