@@ -115,17 +115,24 @@
 
   /* === Активный пункт меню === */
   var allNavLinks = document.querySelectorAll('.header__nav a, .header__mobile-nav a');
+  var navLocked = false;
+  var navLockTimer;
 
-  // Клик → подсвечиваем нажатый пункт
+  // Клик → подсвечиваем нажатый пункт и блокируем скролл-обработчик на время анимации
   allNavLinks.forEach(function(link) {
     link.addEventListener('click', function() {
       allNavLinks.forEach(function(l) { l.classList.remove('active'); });
       this.classList.add('active');
+
+      navLocked = true;
+      clearTimeout(navLockTimer);
+      navLockTimer = setTimeout(function() { navLocked = false; }, 700);
     });
   });
 
   // Если пользователь сам проскроллил наверх — возвращаем «Главная»
   window.addEventListener('scroll', function() {
+    if (navLocked) return;
     if (window.scrollY < 80) {
       allNavLinks.forEach(function(link) {
         link.classList.toggle('active', link.getAttribute('href') === '#home');
