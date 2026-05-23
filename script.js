@@ -105,26 +105,38 @@
   /* === Плавный скролл === */
   document.documentElement.style.scrollBehavior = 'smooth';
 
-  /* === Активный пункт меню при скролле (IntersectionObserver) === */
+  /* === Активный пункт меню при скролле === */
   var allNavLinks = document.querySelectorAll('.header__nav a, .header__mobile-nav a');
-  var sections = document.querySelectorAll('section[id], header[id]');
 
-  var sectionObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (!entry.isIntersecting) return;
-      var id = entry.target.id;
-      allNavLinks.forEach(function(link) {
-        var href = link.getAttribute('href').replace('#', '');
-        var isMatch =
-          href === id ||
-          (href === 'home' && (id === 'home')) ||
-          (href === 'about' && (id === 'about' || id === 'details'));
-        link.classList.toggle('active', isMatch);
-      });
+  // Секции в порядке снизу вверх: первая совпавшая = текущая
+  var navSections = [
+    { id: 'contacts',    nav: 'contacts'  },
+    { id: 'documents',   nav: 'documents' },
+    { id: 'services',    nav: 'services'  },
+    { id: 'about',       nav: 'about'     },
+    { id: 'sialiya',     nav: 'home'      },
+    { id: 'sialiya-yug', nav: 'home'      },
+  ];
+
+  function updateActiveNav() {
+    var scrollY = window.scrollY + 80; // смещение на высоту шапки
+    var activeNav = 'home';            // по умолчанию — Главная
+
+    for (var i = 0; i < navSections.length; i++) {
+      var el = document.getElementById(navSections[i].id);
+      if (el && el.offsetTop <= scrollY) {
+        activeNav = navSections[i].nav;
+        break;
+      }
+    }
+
+    allNavLinks.forEach(function(link) {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + activeNav);
     });
-  }, { threshold: 0.25, rootMargin: '-60px 0px 0px 0px' });
+  }
 
-  sections.forEach(function(s) { sectionObserver.observe(s); });
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
 
   /* === Инициализация поля телефона === */
   var phoneField = document.querySelector('#calcModal input[type="tel"]');
