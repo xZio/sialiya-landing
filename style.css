@@ -233,7 +233,7 @@
     .hero__buttons {
       margin-top: auto;
       display: flex;
-      gap: clamp(20px, 5.07vw, 73px);
+      gap: clamp(10px, 1.04vw, 15px);
     }
     .hero__btn {
       width: clamp(180px, 18.5vw, 267px);
