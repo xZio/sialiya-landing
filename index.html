@@ -76,7 +76,8 @@
     <img class="branch-card__photo-main" src="assets/images/south-img9.jpg" alt="Сиалия-Юг">
     <img class="branch-card__photo-sm" src="assets/images/south-img8.jpg" alt="">
     <img class="branch-card__photo-sm" src="assets/images/south-img10.jpg" alt="">
-    <div class="branch-card__more-photos"><span>+14 фото</span></div>
+    <!-- TODO: заменить # на ссылку Яндекс.Карты (Юг) -->
+    <a class="branch-card__more-photos" href="#" target="_blank" rel="noopener"><span>+14 фото</span></a>
   </div>
 
   <!-- Reviews / Gallery / More RIGHT -->
@@ -92,10 +93,10 @@
       <img src="assets/images/btn-gallery.svg" alt="">
       <span>Галерея</span>
     </div>
-    <div class="branch-card__btn-more branch-card__btn-more-south">
+    <a class="branch-card__btn-more branch-card__btn-more-south" href="#details-south">
       <img src="assets/images/btn-more-south.svg" alt="">
       <span>Подробнее</span>
-    </div>
+    </a>
   </div>
 
   <!-- Info RIGHT -->
@@ -159,11 +160,12 @@
       <img src="assets/images/btn-gallery.svg" alt="">
       <span>Галерея</span>
     </div>
-    <div class="branch-card__btn-more branch-card__btn-more-main">
+    <a class="branch-card__btn-more branch-card__btn-more-main" href="#details-main">
       <img src="assets/images/btn-more-main.svg" alt="">
       <span>Подробнее</span>
-    </div>
-    <div class="branch-card__meta-badge"><span>+14 фото</span></div>
+    </a>
+    <!-- TODO: заменить # на ссылку Яндекс.Карты (Сиалия) -->
+    <a class="branch-card__meta-badge" href="#" target="_blank" rel="noopener"><span>+14 фото</span></a>
   </div>
 
   <!-- Photos RIGHT -->
@@ -197,11 +199,11 @@
 
 <!-- ========================= ПОДРОБНЕЕ О СИАЛИЯ ========================= -->
 <section class="details">
-  <h2 class="details__heading">Подробнее о «Сиалия»</h2>
+  <h2 class="details__heading" id="details-main">Подробнее о «Сиалия»</h2>
   <p class="details__text">
     Пансионат с 2020 года находится в Московском районе Санкт-Петербурга, в 10 минутах (на машине) от НИИ Скорой помощи им.И.И.Джанилидзе. В пешей доступности от от ст.м. Звездная и ст.м. Купчино. Рассчитан на 20 койко-мест с отдельной столовой и рекреационной зоной, где располагается зона отдыха, небольшая библиотека, большой телевизор и настольные игры. Есть гостевой холл, где можно приятно пообщаться вдвоём на удобных креслах. Имеется вся необходимая мебель и оборудование. Вкусное сбалансированное питание, хлопковая постель и полотенца, мягкие подушки и одеяла, современные кровати. Всё сделано с любовью и глубоким уважением к мудрому поколению. Мы хотим быть Вам полезными. Видеть Ваши улыбки. Видеть, как Вы расцветаете от общения друг с другом. Всё по-домашнему! Всегда с удовольствием выслушаем и узнаем Ваш жизненный опыт! Никто не остается без внимания, когда желает общения, и конечно всегда есть возможность поговорить с умным человеком (с собой), если немного устал. Мы открыты для совместной творческой работы, занятий и духовного единства. Прогулки осуществляются в теплую погоду под присмотром родных.
   </p>
-  <h2 class="details__heading">Подробнее о «Сиалия-Юг»</h2>
+  <h2 class="details__heading" id="details-south">Подробнее о «Сиалия-Юг»</h2>
   <p class="details__text">
     Пансионат был открыт в 2026 году и расположен в Петродворцовом районе Санкт-Петербурга, в 15 минутах (на машине) от Николаевской Больницы. Практически на остановке «Ул.Дзержинского» (автобусы №357,354,329). В пешей доступности от станции «Старый Петергоф». Рассчитан на 25 койко-мест с отдельной столовой и рекреационной зоной, где располагается зона отдыха, небольшая библиотека, телевизор и настольные игры. Просторные светлые комнаты. Просторные санитарные комнаты, расположенные рядом. Есть гостевые холлы, где можно приятно пообщаться вдвоём на удобных креслах. Вся мебель и оборудование новое. Имеется огороженная территория, поэтому прогулки осуществляются в теплую погоду на террасе. Вкусное сбалансированное питание, хлопковая постель и полотенца, мягкие подушки и одеяла, современные кровати, свежий ремонт. Всё сделано с любовью и глубоким уважением к мудрому поколению. Мы хотим быть Вам полезными. Видеть Ваши улыбки. Видеть, как Вы расцветаете от общения друг с другом. Всё по-домашнему! Всегда с удовольствием выслушаем и узнаем Ваш жизненный опыт! Никто не остается без внимания, когда желает общения, и конечно всегда есть возможность поговорить с умным человеком (с собой), если немного устал. Мы открыты для совместной творческой работы, занятий и духовного единства.
   </p>
@@ -360,13 +362,13 @@
 <div class="modal-overlay" id="calcModal" onclick="if(event.target===this)closeCalc()">
   <div class="calculator">
     <div class="calc__header">
-      <h2>РАСЧЕТ СТОИМОСТИ ПРЕБЫВАНИЯ</h2>
+      <h2>Расчёт стоимости пребывания</h2>
       <button class="calc__close" onclick="closeCalc()">✕</button>
     </div>
     <div class="calc__body">
       <div class="calc__field">
         <label class="calc__label">Срок пребывания</label>
-        <select class="calc__input">
+        <select id="calcPeriod" class="calc__input">
           <option value="">Выбрать</option>
           <option>До 30 дней</option>
           <option>От 30 дней</option>
@@ -375,11 +377,11 @@
       </div>
       <div class="calc__field">
         <label class="calc__label">Возраст</label>
-        <input class="calc__input" type="number" placeholder="Например: 65 лет">
+        <input id="calcAge" class="calc__input" type="number" placeholder="Например: 65 лет" min="1" max="120">
       </div>
       <div class="calc__field">
         <label class="calc__label">Степень самостоятельности</label>
-        <select class="calc__input">
+        <select id="calcMobility" class="calc__input">
           <option value="">Выбрать</option>
           <option>Ходит самостоятельно</option>
           <option>Ходит с поддержкой</option>
@@ -401,22 +403,33 @@
       </div>
       <div class="calc__field">
         <label class="calc__label">Пол</label>
-        <div class="calc__gender">
+        <div id="calcGender" class="calc__gender">
           <label><input type="radio" name="gender" value="m"> Мужской</label>
           <label><input type="radio" name="gender" value="f"> Женский</label>
         </div>
       </div>
-      <div class="calc__consent">
+      <label class="calc__consent">
         <input type="checkbox" class="calc__checkbox">
-        <p class="calc__consent-text">
+        <span class="calc__consent-text">
           <strong>Нажимая кнопку я даю согласие на </strong>
           обработку персональных данных и соглашаюсь с политикой конфиденциальности
-        </p>
-      </div>
+        </span>
+      </label>
       <div class="calc__submit-wrap">
-        <button class="calc__submit">Рассчитать стоимость</button>
+        <button class="calc__submit" onclick="submitCalc(event)">Рассчитать стоимость</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ========================= УВЕДОМЛЕНИЕ ПОСЛЕ КАЛЬКУЛЯТОРА ========================= -->
+<div class="modal-overlay" id="notifModal" onclick="if(event.target===this)closeNotif()">
+  <div class="notif">
+    <button class="calc__close notif__close" onclick="closeNotif()">✕</button>
+    <div class="notif__icon">✓</div>
+    <h2 class="notif__title">Заявка принята!</h2>
+    <p class="notif__text">Менеджер рассчитает стоимость пребывания и свяжется с вами в ближайшее время.</p>
+    <button class="notif__btn" onclick="closeNotif()">Понятно</button>
   </div>
 </div>
 
