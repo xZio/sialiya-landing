@@ -71,7 +71,27 @@
 
     closeCalc();
     openNotif();
-    // TODO: отправка в Telegram-бот (токен и chat_id добавить позже)
+
+    // Отправка заявки в Telegram
+    var gender = document.querySelector('#calcModal input[name="gender"]:checked');
+    var mental = document.getElementById('calcMental');
+    var mentalDetail = document.getElementById('calcMentalDetail');
+    var mentalText = mental.value === 'yes'
+      ? ('Да' + (mentalDetail.value ? ': ' + mentalDetail.value : ''))
+      : 'Нет';
+    var text = '📋 *Новая заявка с сайта*\n\n'
+      + '📞 Телефон: ' + phoneInput.value + '\n'
+      + '📅 Срок: ' + periodSel.value + '\n'
+      + '🎂 Возраст: ' + ageInput.value + ' лет\n'
+      + '🚶 Самостоятельность: ' + mobilitySel.value + '\n'
+      + '⚧ Пол: ' + (gender ? (gender.value === 'm' ? 'Мужской' : 'Женский') : '—') + '\n'
+      + '🧠 Психические заболевания: ' + mentalText;
+
+    fetch('https://api.telegram.org/bot8936956384:AAEZKf0vvUSc-Rt-zIgFyIinJqmVbJ3WEMU/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: 1068267365, text: text, parse_mode: 'Markdown' })
+    }).catch(function() {}); // молча игнорируем ошибки сети
   }
 
   /* === Поле уточнения психического заболевания === */
