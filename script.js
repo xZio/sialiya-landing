@@ -126,9 +126,13 @@
     { id: 'sialiya-yug', nav: 'home'      },
   ];
 
+  var navScrollLocked = false;
+  var navScrollTimer;
+
   function updateActiveNav() {
-    var scrollY = window.scrollY + 80; // смещение на высоту шапки
-    var activeNav = 'home';            // по умолчанию — Главная
+    if (navScrollLocked) return;
+    var scrollY = window.scrollY + 80;
+    var activeNav = 'home';
 
     for (var i = 0; i < navSections.length; i++) {
       var el = document.getElementById(navSections[i].id);
@@ -146,11 +150,19 @@
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   updateActiveNav();
 
-  // При клике сразу подсвечиваем выбранный пункт (на случай если секции уже видны)
+  // При клике: сразу подсвечиваем нужный пункт и блокируем скролл-обработчик
+  // на время анимации скролла, чтобы он не перебил активный пункт
   allNavLinks.forEach(function(link) {
     link.addEventListener('click', function() {
       allNavLinks.forEach(function(l) { l.classList.remove('active'); });
       this.classList.add('active');
+
+      navScrollLocked = true;
+      clearTimeout(navScrollTimer);
+      navScrollTimer = setTimeout(function() {
+        navScrollLocked = false;
+        updateActiveNav();
+      }, 800);
     });
   });
 
