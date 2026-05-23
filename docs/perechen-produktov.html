@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Перечень продуктов — Сиалия</title>
+  <link rel="stylesheet" href="../assets/fonts/fonts-embedded.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f4f4f4; color: #0e2b4d; min-height: 100vh; }
+    .doc-page { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
+    .doc-header { background: #dbdbdb; padding: 0 20px; height: 68px; display: flex; align-items: center; gap: 12px; margin: 0 -20px 48px; position: sticky; top: 0; z-index: 10; }
+    .doc-header__back { display: flex; align-items: center; gap: 8px; color: #305b84; text-decoration: none; font-size: 15px; font-weight: 500; white-space: nowrap; }
+    .doc-header__logo { display: flex; align-items: center; gap: 8px; text-decoration: none; margin-left: auto; }
+    .doc-header__logo img { height: 44px; width: auto; }
+    .doc-title { font-size: 36px; font-weight: 700; color: #0e2b4d; line-height: 1.2; margin-bottom: 8px; }
+    .doc-subtitle { font-size: 14px; color: #305b84; margin-bottom: 40px; }
+    .doc-section { margin-bottom: 32px; }
+    .doc-section h2 { font-size: 20px; font-weight: 700; color: #305b84; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #305b8422; }
+    .doc-section p { font-size: 15px; line-height: 1.7; color: #0e2b4d; margin-bottom: 10px; }
+    .doc-section ul { padding-left: 20px; margin-bottom: 10px; }
+    .doc-section ul li { font-size: 15px; line-height: 1.7; color: #0e2b4d; margin-bottom: 4px; }
+    .doc-warn { background: #fff3cd; border-left: 4px solid #e6a817; padding: 16px 20px; border-radius: 8px; margin: 16px 0; }
+    .doc-warn p { margin: 0; font-size: 15px; font-weight: 500; }
+    .doc-danger { background: #ffe4e4; border-left: 4px solid #e74c3c; padding: 16px 20px; border-radius: 8px; margin: 16px 0; }
+    .doc-danger ul { margin: 8px 0 0; }
+    .doc-note { font-size: 13px; color: #6b7a8d; font-style: italic; }
+
+    /* Table */
+    .doc-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+    .doc-table th { background: #305b84; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    .doc-table td { padding: 9px 14px; border-bottom: 1px solid #e0e8f0; vertical-align: top; }
+    .doc-table tr:nth-child(even) td { background: #f0f5fa; }
+    .doc-table tr:hover td { background: #e4edf7; }
+  </style>
+</head>
+<body>
+<div class="doc-page">
+  <header class="doc-header">
+    <a href="../index.html" class="doc-header__back">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L6 10L12 16" stroke="#305b84" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Назад
+    </a>
+    <a href="../index.html" class="doc-header__logo">
+      <img src="../assets/images/logo-bird.png" alt="Сиалия">
+      <img src="../assets/images/logo-text.svg" alt="Сиалия" style="height:32px;">
+    </a>
+  </header>
+
+  <h1 class="doc-title">Перечень продуктов, разрешённых для передачи постояльцам</h1>
+  <p class="doc-subtitle">Пансионат «Сиалия»</p>
+
+  <div class="doc-section">
+    <table class="doc-table">
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>Наименование продукта</th>
+          <th>Количество</th>
+          <th>Срок хранения (в холодильнике)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Сыр неострый твёрдый / плавленый</td><td>200 г</td><td>15 / 10 суток</td></tr>
+        <tr><td>2</td><td>Кефир, ряженка, йогурт (стекл./полимер.)</td><td>500 мл</td><td>36 / 72 часов</td></tr>
+        <tr><td>3</td><td>Колбаса твёрдых сортов</td><td>200 г</td><td>48 часов</td></tr>
+        <tr><td>4</td><td>Ветчина нежирная</td><td>200 г</td><td>48 часов</td></tr>
+        <tr><td>5</td><td>Сметана</td><td>200 г</td><td>72 часа</td></tr>
+        <tr><td>6</td><td>Творог в упаковке</td><td>250 г</td><td>36 часов</td></tr>
+        <tr><td>7</td><td>Молоко пастеризованное</td><td>500 мл</td><td>36 часов</td></tr>
+        <tr><td>8</td><td>Масло сливочное</td><td>200 г</td><td>10 суток</td></tr>
+        <tr><td>9</td><td>Сливки</td><td>100 мл</td><td>72 часа</td></tr>
+        <tr><td>10</td><td>Яйцо варёное</td><td>2 шт</td><td>24 часа</td></tr>
+        <tr><td>11</td><td>Соки фруктовые / овощные</td><td>500 / 300 мл</td><td>24 часа</td></tr>
+        <tr><td>12</td><td>Фрукты свежие</td><td>500 г</td><td>—</td></tr>
+        <tr><td>13</td><td>Овощи свежие (помидоры, огурцы)</td><td>500 г</td><td>—</td></tr>
+        <tr><td>14</td><td>Минеральная вода</td><td>1,5 л</td><td>—</td></tr>
+        <tr><td>15</td><td>Конфеты, зефир, пастила, мармелад</td><td>300 г</td><td>—</td></tr>
+        <tr><td>16</td><td>Печенье, сухари, пряники</td><td>300 г</td><td>—</td></tr>
+        <tr><td>17</td><td>Варенье</td><td>300 г</td><td>—</td></tr>
+        <tr><td>18</td><td>Сахар</td><td>200 г</td><td>—</td></tr>
+        <tr><td>19</td><td>Сухофрукты</td><td>300 г</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-warn">
+      <p>Продукты хранятся в холодильнике и должны быть упакованы в прозрачный пакет, подписанный «фамилия, номер комнаты, дата». Продукты с истекшим сроком хранения или сомнительного качества изымаются и выбрасываются без предупреждения!</p>
+    </div>
+
+    <p>В тумбочке разрешено хранить продукты, не требующие особых условий хранения. Пожалуйста, сухие и сыпучие продукты (печенье, сахар, орехи, конфеты и т.п.) храните в контейнерах или полиэтиленовых пакетах.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>Запрещённые продукты</h2>
+    <div class="doc-danger">
+      <ul style="padding-left:20px;">
+        <li>Мясные и рыбные консервы</li>
+        <li>Острые, пряные, копчёные, солёные блюда</li>
+        <li>Грибы любые</li>
+        <li>Семечки</li>
+        <li>Торты и пирожные с начинками старше 18 часов</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <p class="doc-note">Составлено на основании СанПиН 2.3.2.1324-03 №98 от 22.05.2003 г. «Гигиенические требования к срокам годности и условиям хранения продуктов».</p>
+  </div>
+</div>
+</body>
+</html>
