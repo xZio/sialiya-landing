@@ -140,13 +140,22 @@
       btn.classList.toggle('a11y-panel__btn--active', cur === val);
       btn.setAttribute('aria-pressed', cur === val ? 'true' : 'false');
     });
+
+    // Текст кнопки в шапке
+    var headerBtnText = document.querySelector('.header__a11y-text');
+    if (headerBtnText) {
+      headerBtnText.textContent = a11yState.open ? 'Обычная версия' : 'Версия для слабовидящих';
+    }
   }
 
   function toggleA11y() {
-    a11yState.open = !a11yState.open;
-    // При первом открытии — применяем белую схему как дефолт
-    if (a11yState.open && a11yState.scheme === 'none') {
-      a11yState.scheme = 'white';
+    if (a11yState.open) {
+      // Закрываем — полный сброс (как «Обычная версия»)
+      a11yState = { open: false, fs: 0, scheme: 'none', images: 1, spacing: 0 };
+    } else {
+      // Открываем — белая схема по умолчанию
+      a11yState.open = true;
+      if (a11yState.scheme === 'none') a11yState.scheme = 'white';
     }
     a11ySave();
     a11yApply();
