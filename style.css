@@ -1659,62 +1659,98 @@
       .a11y-panel__sep { display: none; }
     }
 
-    /* --- Размер шрифта --- */
-    html.a11y-fs-1 { zoom: 1.25; }
-    html.a11y-fs-2 { zoom: 1.5; }
+    /* --- Размер шрифта: зумируем только контент, шапка и панель не трогаются --- */
+    html.a11y-fs-1 .page-content { zoom: 1.25; }
+    html.a11y-fs-2 .page-content { zoom: 1.5; }
 
     /* --- Межбуквенный интервал --- */
-    html.a11y-spacing-1 body { letter-spacing: 0.08em !important; line-height: 1.9 !important; word-spacing: 0.15em !important; }
-    html.a11y-spacing-2 body { letter-spacing: 0.16em !important; line-height: 2.2 !important; word-spacing: 0.3em !important; }
+    html.a11y-spacing-1 .page-content { letter-spacing: 0.08em; line-height: 1.9; word-spacing: 0.15em; }
+    html.a11y-spacing-2 .page-content { letter-spacing: 0.16em; line-height: 2.2; word-spacing: 0.3em; }
 
     /* --- Изображения --- */
     html.a11y-no-images img { visibility: hidden !important; }
 
     /* ---- Цветовые схемы ---- */
+    /* Подход: таргетируем крупные блоки, не трогаем панель и шапку,
+       для активных кнопок схем используем outline — он не конфликтует с их bg */
 
-    /* Восстановление панели в белой и жёлтой схемах (specificity > body *) */
-    html.a11y-scheme-white .a11y-panel,
-    html.a11y-scheme-yellow .a11y-panel { background-color: #eef2f6 !important; border-color: #305b84 !important; }
-    html.a11y-scheme-white .a11y-panel__btn,
-    html.a11y-scheme-yellow .a11y-panel__btn { background-color: #fff !important; color: #333 !important; border-color: #aaa !important; }
-    html.a11y-scheme-white .a11y-panel__btn--active,
-    html.a11y-scheme-yellow .a11y-panel__btn--active { background-color: #305b84 !important; color: #fff !important; border-color: #305b84 !important; }
-    html.a11y-scheme-white .a11y-panel__btn--wb,
-    html.a11y-scheme-yellow .a11y-panel__btn--wb { background-color: #000 !important; color: #fff !important; }
-    html.a11y-scheme-white .a11y-panel__btn--yb,
-    html.a11y-scheme-yellow .a11y-panel__btn--yb { background-color: #f9f214 !important; color: #000 !important; border-color: #bba800 !important; }
-    html.a11y-scheme-white .a11y-panel__label,
-    html.a11y-scheme-white .a11y-panel__reset,
-    html.a11y-scheme-yellow .a11y-panel__label,
-    html.a11y-scheme-yellow .a11y-panel__reset { color: #555 !important; background-color: transparent !important; border-color: #aaa !important; }
-    html.a11y-scheme-white .a11y-panel__sep,
-    html.a11y-scheme-yellow .a11y-panel__sep { background-color: #ccc !important; }
-    html.a11y-scheme-white .modal-overlay,
-    html.a11y-scheme-yellow .modal-overlay { background: rgba(0,0,0,0.6) !important; }
+    /* Активная кнопка цветовой схемы — outline, чтобы не перебивать bg Б/Ч и Ж/Ч */
+    .a11y-panel__btn--bw.a11y-panel__btn--active,
+    .a11y-panel__btn--wb.a11y-panel__btn--active,
+    .a11y-panel__btn--yb.a11y-panel__btn--active {
+      outline: 3px solid #305b84 !important;
+      outline-offset: 2px !important;
+    }
 
-    /* БЕЛЫЙ (Ч/Б): чёрный текст на белом */
+    /* БЕЛЫЙ (Ч/Б): чёрный текст на белом фоне */
     html.a11y-scheme-white,
     html.a11y-scheme-white body { background-color: #fff !important; color: #000 !important; }
-    html.a11y-scheme-white body * { background-color: #fff !important; color: #000 !important; border-color: #ccc !important; text-shadow: none !important; }
-    html.a11y-scheme-white a,
-    html.a11y-scheme-white a * { color: #00008b !important; }
-    html.a11y-scheme-white .calculator,
-    html.a11y-scheme-white .notif,
-    html.a11y-scheme-white .contact-popup { border: 2px solid #000 !important; }
+    /* Контентные блоки */
+    html.a11y-scheme-white .page-content,
+    html.a11y-scheme-white .hero,
+    html.a11y-scheme-white .hero__content,
+    html.a11y-scheme-white .branch-card,
+    html.a11y-scheme-white .branch-card__info,
+    html.a11y-scheme-white .pricing,
+    html.a11y-scheme-white .pricing__col,
+    html.a11y-scheme-white .section,
+    html.a11y-scheme-white .details,
+    html.a11y-scheme-white .schedule,
+    html.a11y-scheme-white .services,
+    html.a11y-scheme-white .service-item,
+    html.a11y-scheme-white .documents__grid,
+    html.a11y-scheme-white .doc-item,
+    html.a11y-scheme-white .contacts,
+    html.a11y-scheme-white .footer { background-color: #fff !important; }
+    /* Шапка в белом режиме */
+    html.a11y-scheme-white .header { background-color: #fff !important; border-bottom: 2px solid #ccc !important; }
+    /* Текст */
+    html.a11y-scheme-white p, html.a11y-scheme-white h1, html.a11y-scheme-white h2,
+    html.a11y-scheme-white h3, html.a11y-scheme-white span, html.a11y-scheme-white li,
+    html.a11y-scheme-white label, html.a11y-scheme-white button,
+    html.a11y-scheme-white .header__nav a,
+    html.a11y-scheme-white .header__mobile-nav a { color: #000 !important; }
+    html.a11y-scheme-white a { color: #00008b !important; }
+    html.a11y-scheme-white .hero__bg { display: none !important; }
+    html.a11y-scheme-white .modal-overlay { background: rgba(0,0,0,0.6) !important; }
 
     /* ЧЁРНЫЙ (Б/Ч): инверсия через filter */
-    html.a11y-scheme-black body { filter: invert(1); }
-    html.a11y-scheme-black img,
-    html.a11y-scheme-black video { filter: invert(1); }
-    html.a11y-scheme-black .a11y-panel { filter: invert(1); }
+    html.a11y-scheme-black body { background: #000 !important; }
+    html.a11y-scheme-black .page-content { filter: invert(1); }
+    html.a11y-scheme-black .page-content img,
+    html.a11y-scheme-black .page-content video { filter: invert(1); }
+    html.a11y-scheme-black .header { filter: invert(1); }
+    /* .a11y-panel не трогаем — она вне page-content, на чёрном body выглядит нормально */
 
-    /* ЖЁЛТЫЙ (Ж/Ч): чёрный текст на жёлтом */
+    /* ЖЁЛТЫЙ (Ж/Ч): чёрный текст на жёлтом фоне */
     html.a11y-scheme-yellow,
     html.a11y-scheme-yellow body { background-color: #f9f214 !important; color: #000 !important; }
-    html.a11y-scheme-yellow body * { background-color: #f9f214 !important; color: #000 !important; border-color: #000 !important; text-shadow: none !important; }
-    html.a11y-scheme-yellow a,
-    html.a11y-scheme-yellow a * { color: #0000cd !important; }
-    html.a11y-scheme-yellow .calculator,
-    html.a11y-scheme-yellow .notif,
-    html.a11y-scheme-yellow .contact-popup { border: 2px solid #000 !important; }
+    /* Контентные блоки */
+    html.a11y-scheme-yellow .page-content,
+    html.a11y-scheme-yellow .hero,
+    html.a11y-scheme-yellow .hero__content,
+    html.a11y-scheme-yellow .branch-card,
+    html.a11y-scheme-yellow .branch-card__info,
+    html.a11y-scheme-yellow .pricing,
+    html.a11y-scheme-yellow .pricing__col,
+    html.a11y-scheme-yellow .section,
+    html.a11y-scheme-yellow .details,
+    html.a11y-scheme-yellow .schedule,
+    html.a11y-scheme-yellow .services,
+    html.a11y-scheme-yellow .service-item,
+    html.a11y-scheme-yellow .documents__grid,
+    html.a11y-scheme-yellow .doc-item,
+    html.a11y-scheme-yellow .contacts,
+    html.a11y-scheme-yellow .footer { background-color: #f9f214 !important; }
+    /* Шапка в жёлтом режиме */
+    html.a11y-scheme-yellow .header { background-color: #f9f214 !important; border-bottom: 2px solid #000 !important; }
+    /* Текст */
+    html.a11y-scheme-yellow p, html.a11y-scheme-yellow h1, html.a11y-scheme-yellow h2,
+    html.a11y-scheme-yellow h3, html.a11y-scheme-yellow span, html.a11y-scheme-yellow li,
+    html.a11y-scheme-yellow label, html.a11y-scheme-yellow button,
+    html.a11y-scheme-yellow .header__nav a,
+    html.a11y-scheme-yellow .header__mobile-nav a { color: #000 !important; }
+    html.a11y-scheme-yellow a { color: #00008b !important; }
+    html.a11y-scheme-yellow .hero__bg { display: none !important; }
+    html.a11y-scheme-yellow .modal-overlay { background: rgba(0,0,0,0.6) !important; }
   
