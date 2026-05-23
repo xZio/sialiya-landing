@@ -1230,15 +1230,12 @@
         object-fit: cover;
       }
       .branch-card__more-photos {
-        position: relative;
-        bottom: 0; right: 0;
-        width: calc(50% - 4px);
-        height: 140px;
-        margin: 0;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 115px;
+        height: 33px;
+        border-radius: 65px;
       }
 
       .branch-card__info {
@@ -1343,7 +1340,7 @@
       /* Фото карточек пансионатов */
       .branch-card__photo-main { height: 180px; }
       .branch-card__photo-sm { height: 110px; }
-      .branch-card__more-photos { height: 110px; }
+      .branch-card__more-photos { height: 33px; width: 115px; }
       .branch-card__name { font-size: 26px; }
 
       /* Цены — мелкий шрифт на мобильном */
