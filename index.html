@@ -92,11 +92,11 @@
     <h2 class="hero__why">Почему нас выбирают?</h2>
     <p class="hero__why-desc">Безопасно, уютно и по-домашнему. Внимательный персонал рядом каждый день, помощь в бытовых делах и спокойная атмосфера. Мы всегда на связи с родными и подбираем уход под потребности человека.</p>
     <div class="hero__buttons">
-      <button class="hero__btn" onclick="openContact()">
+      <button class="hero__btn" type="button" onclick="openContact()">
         <span class="hero__btn-line1">Записаться</span>
         <span class="hero__btn-line2">на экскурсию</span>
       </button>
-      <button class="hero__btn" onclick="openCalc()">
+      <button class="hero__btn" type="button" onclick="openCalc()">
         <span class="hero__btn-line1">Калькулятор</span>
         <span class="hero__btn-line2">стоимости</span>
       </button>
@@ -119,7 +119,7 @@
   <!-- Reviews / Gallery / More RIGHT -->
   <div class="branch-card__meta branch-card__meta-south">
     <a class="branch-card__reviews" href="https://yandex.com.tr/maps/org/sialiya_yug/46590422293/reviews/?ll=28.793338%2C59.879597&mode=search&sll=29.848026%2C59.878573&source=serp_navig&tab=reviews&text=%D0%A1%D0%B8%D0%B0%D0%BB%D0%B8%D1%8F%20%D1%8E%D0%B3&z=9" target="_blank" rel="noopener">
-      <img src="assets/images/reviews-south.svg" alt="">
+      <img src="assets/images/reviews-south.svg" alt="Отзывы на Яндекс Картах">
       <div class="branch-card__reviews-inner">
         <span class="branch-card__reviews-label">Отзывы:</span>
         <span class="branch-card__stars" aria-label="4.4 из 5">
@@ -189,7 +189,7 @@
   <!-- Reviews / Gallery / More LEFT -->
   <div class="branch-card__meta branch-card__meta-main">
     <a class="branch-card__reviews" href="https://yandex.com.tr/maps/org/cialia/163481686618/reviews/?ll=36.197860%2C45.125006&mode=search&sll=36.725204%2C45.123818&source=serp_navig&tab=reviews&text=%D0%A1%D0%B8%D0%B0%D0%BB%D0%B8%D1%8F&z=9" target="_blank" rel="noopener">
-      <img src="assets/images/reviews-main.svg" alt="">
+      <img src="assets/images/reviews-main.svg" alt="Отзывы на Яндекс Картах">
       <div class="branch-card__reviews-inner">
         <span class="branch-card__reviews-label">Отзывы:</span>
         <span class="branch-card__stars" aria-label="4.9 из 5">
@@ -353,9 +353,9 @@
     Забота и комфорт для пожилых людей<br>
     с круглосуточным уходом и вниманием
   </div>
-  <div class="footer__cta" onclick="openContact()">
+  <button class="footer__cta" type="button" onclick="openContact()">
     <span>Записаться</span>
-  </div>
+  </button>
 
   <!-- nav + contacts wrapper (static on desktop, flex on mobile) -->
   <div class="footer__mid">
@@ -378,7 +378,7 @@
         </div>
         <div class="footer__contacts-row">
           <span class="footer__contacts-label">Телефон:</span>
-          <span class="footer__contacts-value">+7 (921) 939-0406</span>
+          <span class="footer__contacts-value">+7 (921) 939-04-06</span>
         </div>
         <div class="footer__contacts-row">
           <span class="footer__contacts-label">Email:</span>

@@ -1,6 +1,12 @@
-/* === Калькулятор === */
-  function openCalc() { document.getElementById('calcModal').classList.add('open'); }
-  function closeCalc() { document.getElementById('calcModal').classList.remove('open'); }
+/* === Модальные окна === */
+  function openModal(id)  { document.getElementById(id).classList.add('open'); }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+  function openCalc()     { openModal('calcModal'); }
+  function closeCalc()    { closeModal('calcModal'); }
+  function openNotif()    { openModal('notifModal'); }
+  function closeNotif()   { closeModal('notifModal'); }
+  function openContact()  { openModal('contactModal'); }
+  function closeContact() { closeModal('contactModal'); }
 
   /* === Маска телефона === */
   function phoneMask(input) {
@@ -68,14 +74,6 @@
     // TODO: отправка в Telegram-бот (токен и chat_id добавить позже)
   }
 
-  /* === Уведомление === */
-  function openNotif() { document.getElementById('notifModal').classList.add('open'); }
-  function closeNotif() { document.getElementById('notifModal').classList.remove('open'); }
-
-  /* === Попап контактов === */
-  function openContact() { document.getElementById('contactModal').classList.add('open'); }
-  function closeContact() { document.getElementById('contactModal').classList.remove('open'); }
-
   /* === Поле уточнения психического заболевания === */
   function toggleMentalDetail(sel) {
     var detail = document.getElementById('calcMentalDetail');
@@ -89,6 +87,8 @@
 
   /* === Версия для слабовидящих === */
   var a11yState = { open: false, fs: 0, scheme: 'none', images: 1, spacing: 0 };
+  var a11yPanelBtns = document.querySelectorAll('#a11yPanel [data-a11y]');
+  var headerBtnText = document.querySelector('.header__a11y-text');
 
   function a11yLoad() {
     try {
@@ -133,7 +133,7 @@
     if (a11yState.spacing === 2) html.classList.add('a11y-spacing-2');
 
     // Активные кнопки
-    document.querySelectorAll('#a11yPanel [data-a11y]').forEach(function(btn) {
+    a11yPanelBtns.forEach(function(btn) {
       var key = btn.getAttribute('data-a11y');
       var val = btn.getAttribute('data-val');
       var cur = String(a11yState[key]);
@@ -142,7 +142,6 @@
     });
 
     // Текст кнопки в шапке
-    var headerBtnText = document.querySelector('.header__a11y-text');
     if (headerBtnText) {
       headerBtnText.textContent = a11yState.open ? 'Обычная версия' : 'Версия для слабовидящих';
     }
@@ -262,9 +261,10 @@
     ageField.addEventListener('input', function() { this.classList.remove('error'); });
   }
 
-  var genderInputs = document.querySelectorAll('#calcGender input[type="radio"]');
+  var calcGenderWrap = document.getElementById('calcGender');
+  var genderInputs = calcGenderWrap ? calcGenderWrap.querySelectorAll('input[type="radio"]') : [];
   genderInputs.forEach(function(radio) {
     radio.addEventListener('change', function() {
-      document.getElementById('calcGender').classList.remove('error');
+      calcGenderWrap.classList.remove('error');
     });
   });

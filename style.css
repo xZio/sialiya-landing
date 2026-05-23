@@ -31,7 +31,6 @@
       display: flex;
       align-items: center;
       flex-shrink: 0;
-      gap: 0;
     }
     .header__logo-img {
       width: 49px;
@@ -290,8 +289,6 @@
       gap: 12px;
       width: auto;
     }
-    .branch-card__photos--left { left: auto; }
-    .branch-card__photos--right { right: auto; }
     .branch-card__photo-main {
       grid-column: 1 / -1;
       width: 100%;
@@ -343,8 +340,6 @@
 
     /* Info block */
     .branch-card__info {
-      position: relative;
-      top: auto;
       padding: 25px 25px 0;
     }
     .branch-card__name {
@@ -379,16 +374,12 @@
 
     /* Reviews & buttons row */
     .branch-card__meta {
-      position: relative;
-      top: auto;
       display: flex;
       align-items: center;
       gap: 7px;
       padding: 12px 25px;
       flex-wrap: wrap;
     }
-    .branch-card__meta-south { left: auto; }
-    .branch-card__meta-main { left: auto; }
 
     .branch-card__reviews {
       position: relative;
@@ -471,12 +462,9 @@
       letter-spacing: -0.6px;
     }
     .branch-card__btn-gallery span { color: rgba(255,255,255,0.9); }
-    .branch-card__btn-more-south span { color: rgba(14,43,77,0.9); }
+    .branch-card__btn-more-south span,
     .branch-card__btn-more-main span { color: rgba(14,43,77,0.9); }
 
-    /* Info block variants — grid управляет позицией */
-    .branch-card__info--left { left: auto; width: auto; }
-    .branch-card__info--right { left: auto; width: auto; }
 
     /* ===== Grid-area назначения для карточек ===== */
     /* Сиалия-Юг: фото слева, инфо+мета справа */
@@ -525,10 +513,6 @@
       padding: 0 25px 16px;
     }
     .pricing__note {
-      position: relative;
-      bottom: auto;
-      left: auto;
-      right: auto;
       margin-top: 8px;
       font-size: 22px;
       font-weight: 500;
@@ -539,11 +523,8 @@
     }
     .pricing__note strong { font-weight: 600; }
     .pricing__cols {
-      position: relative;
-      top: auto;
       height: auto;
       display: flex;
-      gap: 0;
     }
     .pricing__col {
       flex: 1;
@@ -657,7 +638,6 @@
     .schedule__table {
       display: flex;
       flex-direction: column;
-      gap: 0;
     }
 
     .schedule__row {
@@ -780,14 +760,11 @@
       cursor: pointer;
       text-align: center;
       padding: 0 20px;
+      text-decoration: none;
+      transition: background 0.2s;
     }
     .doc-item--wide {
       grid-column: span 3;
-    }
-    .doc-item {
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.2s;
     }
     .doc-item:hover { background: rgba(48,91,132,0.18); }
     .doc-item span {
